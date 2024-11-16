@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Your Memories</h1>
+    <div class="memory-container">
+        {% for memory in memories %}
+            <div class="memory">
+                <p>{{ memory.text }}</p>
+                {% if memory.image %}
+                    <img src="{{ memory.image }}" alt="Memory Image">
+                {% endif %}
+                <small>{{ memory.timestamp }}</small>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/" class="back-button">Back to Add Memory</a>
+</body>
+</html>
